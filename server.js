@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 var bodyParser= require('body-parser');
+var time = require("./timeUtil.js");
 const app = express();
 var urls=[];
 var nextShort=0;
@@ -69,6 +70,18 @@ app.get('/api/shorturl/:shortUrl?', function(req, res) {
     res.redirect(urls[shortUrl]);
     
   }
+});
+app.get("/api/whoami", function (req, res) {
+  res.json({ipaddress: req.socket.remoteAddress,
+    language: req.headers["accept-language"],
+    software: req.get('User-Agent')
+  });
+});
+app.get("/api/:date?",function(req,res){
+  // var date= req.params.date;
+  // var unix = new Date(date).getTime() / 1000;
+  // var isoDateString = new Date(date).toISOString();
+  res.json(time(req.params.date));
 });
 
 app.listen(port, function() {
