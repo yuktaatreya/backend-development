@@ -32,6 +32,9 @@ app.get('/headerParser', function(req, res) {
 app.get('/timestampMicroservice', function(req, res) {
   res.sendFile(process.cwd() + '/views/timestamp.html');
 });
+app.get('/exercisetracker', function(req, res) {
+  res.sendFile(process.cwd() + '/views/exercisetracker.html');
+});
 
 // Your first API endpoint
 app.get('/api/hello', function(req, res) {
