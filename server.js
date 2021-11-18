@@ -21,16 +21,16 @@ app.use("/",bodyParser.urlencoded({extended: false}));
 app.use('/public', express.static(`${process.cwd()}/public`));
 
 app.get('/', function(req, res) {
-  res.sendFile(process.cwd() + '/views/index.html');
+  res.sendFile(process.cwd() + '/views/urlshortener.html');
 });
 app.get('/urlShortener', function(req, res) {
-  res.sendFile(process.cwd() + '/views/index.html');
+  res.sendFile(process.cwd() + '/views/urlshortener.html');
 });
 app.get('/headerParser', function(req, res) {
-  res.sendFile(process.cwd() + '/views/index.html');
+  res.sendFile(process.cwd() + '/views/headerparser.html');
 });
 app.get('/timestampMicroservice', function(req, res) {
-  res.sendFile(process.cwd() + '/views/index.html');
+  res.sendFile(process.cwd() + '/views/timestamp.html');
 });
 
 // Your first API endpoint
